@@ -1,251 +1,280 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analisador Ergonômico - RULA, REBA, OWAS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>Analisador Ergonômico</h1>
-                    <span class="subtitle">Análise RULA, REBA e OWAS</span>
-                </div>
-                <div class="header-actions">
-                    <button class="btn btn-secondary" id="helpBtn">
-                        <span class="icon">?</span>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analisador Ergonômico - RULA, REBA, OWAS</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Roboto+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #003366;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 2rem;
+}
+
+.container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+button, select, input[type="file"] {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+h1, h2, h3 {
+  color: #003366;
+}
+</style></head>
+<body><header>Ergonomic Analyzer - Avaliação RULA, REBA, OWAS</header><main class="container">
+<!-- Header -->
+<header class="header">
+<div class="container">
+<div class="header-content">
+<div class="logo">
+<h1>Analisador Ergonômico</h1>
+<span class="subtitle">Análise RULA, REBA e OWAS</span>
+</div>
+<div class="header-actions">
+<button class="btn btn-secondary" id="helpBtn">
+<span class="icon">?</span>
                         Ajuda
                     </button>
-                    <button class="btn btn-primary" id="exportBtn" disabled>
-                        <span class="icon">↓</span>
+<button class="btn btn-primary" disabled="" id="exportBtn">
+<span class="icon">↓</span>
                         Exportar
                     </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main">
-        <div class="container">
-            <!-- Methodology Selector -->
-            <div class="methodology-selector">
-                <div class="tabs">
-                    <button class="tab active" data-method="rula">
-                        <span class="tab-icon">👤</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="main">
+<div class="container">
+<!-- Methodology Selector -->
+<div class="methodology-selector">
+<div class="tabs">
+<button class="tab active" data-method="rula">
+<span class="tab-icon">👤</span>
                         RULA
                         <span class="tab-description">Membros Superiores</span>
-                    </button>
-                    <button class="tab" data-method="reba">
-                        <span class="tab-icon">🧍</span>
+</button>
+<button class="tab" data-method="reba">
+<span class="tab-icon">🧍</span>
                         REBA
                         <span class="tab-description">Corpo Inteiro</span>
-                    </button>
-                    <button class="tab" data-method="owas">
-                        <span class="tab-icon">⚡</span>
+</button>
+<button class="tab" data-method="owas">
+<span class="tab-icon">⚡</span>
                         OWAS
                         <span class="tab-description">Postura de Trabalho</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Main Dashboard -->
-            <div class="dashboard">
-                <!-- Image Capture Area -->
-                <div class="capture-area">
-                    <div class="image-container">
-                        <div class="camera-placeholder" id="cameraPlaceholder">
-                            <div class="placeholder-content">
-                                <div class="placeholder-icon">📷</div>
-                                <h3>Capturar Imagem</h3>
-                                <p>Ative a câmera ou faça upload de uma imagem para iniciar a análise</p>
-                                <div class="capture-buttons">
-                                    <button class="btn btn-primary" id="activateCameraBtn">
-                                        <span class="icon">📹</span>
+</button>
+</div>
+</div>
+<!-- Main Dashboard -->
+<div class="dashboard">
+<!-- Image Capture Area -->
+<div class="capture-area">
+<div class="image-container">
+<div class="camera-placeholder" id="cameraPlaceholder">
+<div class="placeholder-content">
+<div class="placeholder-icon">📷</div>
+<h3>Capturar Imagem</h3>
+<p>Ative a câmera ou faça upload de uma imagem para iniciar a análise</p>
+<div class="capture-buttons">
+<button class="btn btn-primary" id="activateCameraBtn">
+<span class="icon">📹</span>
                                         Ativar Câmera
                                     </button>
-                                    <button class="btn btn-secondary" id="uploadImageBtn">
-                                        <span class="icon">📁</span>
+<button class="btn btn-secondary" id="uploadImageBtn">
+<span class="icon">📁</span>
                                         Upload Imagem
                                     </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <video id="videoElement" class="video-element" autoplay muted></video>
-                        <canvas id="captureCanvas" class="capture-canvas"></canvas>
-                        <canvas id="poseCanvas" class="pose-canvas"></canvas>
-                        
-                        <div class="image-controls" id="imageControls" style="display: none;">
-                            <button class="btn btn-primary" id="captureBtn">
-                                <span class="icon">📸</span>
+</div>
+</div>
+</div>
+<video autoplay="" class="video-element" id="videoElement" muted=""></video>
+<canvas class="capture-canvas" id="captureCanvas"></canvas>
+<canvas class="pose-canvas" id="poseCanvas"></canvas>
+<div class="image-controls" id="imageControls" style="display: none;">
+<button class="btn btn-primary" id="captureBtn">
+<span class="icon">📸</span>
                                 Capturar
                             </button>
-                            <button class="btn btn-secondary" id="retakeBtn">
-                                <span class="icon">🔄</span>
+<button class="btn btn-secondary" id="retakeBtn">
+<span class="icon">🔄</span>
                                 Nova Captura
                             </button>
-                        </div>
-                    </div>
-
-                    <!-- Processing Status -->
-                    <div class="processing-status" id="processingStatus" style="display: none;">
-                        <div class="loading-spinner"></div>
-                        <p>Detectando pose humana...</p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Control Panel -->
-                <div class="control-panel">
-                    <!-- Analysis Controls -->
-                    <div class="panel-section">
-                        <h3>Controles de Análise</h3>
-                        
-                        <div class="control-group">
-                            <label for="poseConfidence">Sensibilidade da Detecção</label>
-                            <input type="range" id="poseConfidence" min="0.1" max="0.9" value="0.5" step="0.1">
-                            <span class="range-value">0.5</span>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="imageContrast">Contraste da Imagem</label>
-                            <input type="range" id="imageContrast" min="0.5" max="2" value="1" step="0.1">
-                            <span class="range-value">1.0</span>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="imageBrightness">Brilho da Imagem</label>
-                            <input type="range" id="imageBrightness" min="0.5" max="2" value="1" step="0.1">
-                            <span class="range-value">1.0</span>
-                        </div>
-                    </div>
-
-                    <!-- Additional Parameters -->
-                    <div class="panel-section" id="additionalParams">
-                        <h3>Parâmetros Adicionais</h3>
-                        
-                        <div class="control-group">
-                            <label for="forceLoad">Força/Carga Aplicada</label>
-                            <select id="forceLoad">
-                                <option value="0">Nenhuma ou < 2kg</option>
-                                <option value="1">2-10kg</option>
-                                <option value="2">10-20kg</option>
-                                <option value="3">> 20kg</option>
-                            </select>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="activityFreq">Frequência da Atividade</label>
-                            <select id="activityFreq">
-                                <option value="0">Ocasional</option>
-                                <option value="1">Frequente (> 4x/min)</option>
-                            </select>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="postureDuration">Duração da Postura</label>
-                            <select id="postureDuration">
-                                <option value="0">< 1 minuto</option>
-                                <option value="1">> 1 minuto (estática)</option>
-                            </select>
-                        </div>
-
-                        <div class="control-group reba-only" style="display: none;">
-                            <label for="coupling">Qualidade do Acoplamento</label>
-                            <select id="coupling">
-                                <option value="0">Bom</option>
-                                <option value="1">Regular</option>
-                                <option value="2">Ruim</option>
-                                <option value="3">Inaceitável</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Analysis Button -->
-                    <div class="panel-section">
-                        <button class="btn btn-primary btn-large" id="analyzeBtn" disabled>
-                            <span class="icon">🔍</span>
+</div>
+</div>
+<!-- Processing Status -->
+<div class="processing-status" id="processingStatus" style="display: none;">
+<div class="loading-spinner"></div>
+<p>Detectando pose humana...</p>
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+</div>
+</div>
+<!-- Control Panel -->
+<div class="control-panel">
+<!-- Analysis Controls -->
+<div class="panel-section">
+<h3>Controles de Análise</h3>
+<div class="control-group">
+<label for="poseConfidence">Sensibilidade da Detecção</label>
+<input id="poseConfidence" max="0.9" min="0.1" step="0.1" type="range" value="0.5"/>
+<span class="range-value">0.5</span>
+</div>
+<div class="control-group">
+<label for="imageContrast">Contraste da Imagem</label>
+<input id="imageContrast" max="2" min="0.5" step="0.1" type="range" value="1"/>
+<span class="range-value">1.0</span>
+</div>
+<div class="control-group">
+<label for="imageBrightness">Brilho da Imagem</label>
+<input id="imageBrightness" max="2" min="0.5" step="0.1" type="range" value="1"/>
+<span class="range-value">1.0</span>
+</div>
+</div>
+<!-- Additional Parameters -->
+<div class="panel-section" id="additionalParams">
+<h3>Parâmetros Adicionais</h3>
+<div class="control-group">
+<label for="forceLoad">Força/Carga Aplicada</label>
+<select id="forceLoad">
+<option value="0">Nenhuma ou &lt; 2kg</option>
+<option value="1">2-10kg</option>
+<option value="2">10-20kg</option>
+<option value="3">&gt; 20kg</option>
+</select>
+</div>
+<div class="control-group">
+<label for="activityFreq">Frequência da Atividade</label>
+<select id="activityFreq">
+<option value="0">Ocasional</option>
+<option value="1">Frequente (&gt; 4x/min)</option>
+</select>
+</div>
+<div class="control-group">
+<label for="postureDuration">Duração da Postura</label>
+<select id="postureDuration">
+<option value="0">&lt; 1 minuto</option>
+<option value="1">&gt; 1 minuto (estática)</option>
+</select>
+</div>
+<div class="control-group reba-only" style="display: none;">
+<label for="coupling">Qualidade do Acoplamento</label>
+<select id="coupling">
+<option value="0">Bom</option>
+<option value="1">Regular</option>
+<option value="2">Ruim</option>
+<option value="3">Inaceitável</option>
+</select>
+</div>
+</div>
+<!-- Analysis Button -->
+<div class="panel-section">
+<button class="btn btn-primary btn-large" disabled="" id="analyzeBtn">
+<span class="icon">🔍</span>
                             Analisar Postura
                         </button>
-                    </div>
-                </div>
-
-                <!-- Results Panel -->
-                <div class="results-panel" id="resultsPanel" style="display: none;">
-                    <div class="panel-section">
-                        <h3>Resultados da Análise</h3>
-                        
-                        <div class="score-display">
-                            <div class="main-score">
-                                <span class="score-label" id="scoreLabel">Pontuação RULA</span>
-                                <span class="score-value" id="scoreValue">-</span>
-                            </div>
-                            <div class="risk-indicator">
-                                <div class="risk-level" id="riskLevel">
-                                    <span class="risk-text">Nível de Risco</span>
-                                    <span class="risk-value" id="riskValue">-</span>
-                                </div>
-                                <div class="risk-bar">
-                                    <div class="risk-fill" id="riskFill"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="detailed-scores" id="detailedScores">
-                            <!-- Pontuações detalhadas serão inseridas aqui via JavaScript -->
-                        </div>
-
-                        <div class="recommendations" id="recommendations">
-                            <h4>Recomendações</h4>
-                            <ul id="recommendationsList">
-                                <!-- Recomendações serão inseridas aqui via JavaScript -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <span>Analisador Ergonômico v1.0</span>
-                    <span>•</span>
-                    <span>Desenvolvido para Engenharia de Segurança</span>
-                </div>
-                <div class="footer-status">
-                    <span class="status-indicator" id="statusIndicator">
-                        <span class="status-dot"></span>
+</div>
+</div>
+<!-- Results Panel -->
+<div class="results-panel" id="resultsPanel" style="display: none;">
+<div class="panel-section">
+<h3>Resultados da Análise</h3>
+<div class="score-display">
+<div class="main-score">
+<span class="score-label" id="scoreLabel">Pontuação RULA</span>
+<span class="score-value" id="scoreValue">-</span>
+</div>
+<div class="risk-indicator">
+<div class="risk-level" id="riskLevel">
+<span class="risk-text">Nível de Risco</span>
+<span class="risk-value" id="riskValue">-</span>
+</div>
+<div class="risk-bar">
+<div class="risk-fill" id="riskFill"></div>
+</div>
+</div>
+</div>
+<div class="detailed-scores" id="detailedScores">
+<!-- Pontuações detalhadas serão inseridas aqui via JavaScript -->
+</div>
+<div class="recommendations" id="recommendations">
+<h4>Recomendações</h4>
+<ul id="recommendationsList">
+<!-- Recomendações serão inseridas aqui via JavaScript -->
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-info">
+<span>Analisador Ergonômico v1.0</span>
+<span>•</span>
+<span>Desenvolvido para Engenharia de Segurança</span>
+</div>
+<div class="footer-status">
+<span class="status-indicator" id="statusIndicator">
+<span class="status-dot"></span>
                         Sistema Pronto
                     </span>
-                </div>
-            </div>
-        </div>
-    </footer>
+</div>
+</div>
+</div>
+</footer>
+<!-- Hidden file input for image upload -->
+<input accept="image/*" id="fileInput" style="display: none;" type="file"/>
+<!-- Scripts -->
 
-    <!-- Hidden file input for image upload -->
-    <input type="file" id="fileInput" accept="image/*" style="display: none;">
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@2.1.0/dist/pose-detection.min.js"></script>
-    <script src="js/demo-image.js"></script>
-    <script src="js/pose-detection-fixed.js"></script>
-    <script src="js/pose-simulation.js"></script>
-    <script src="js/ergonomic-algorithms.js"></script>
-    <script src="js/ui-controller.js"></script>
-    <script src="js/main.js"></script>
-</body>
+
+
+
+
+
+
+</main><script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@2.1.0/dist/pose-detection.min.js"></script><script src="js/demo-image.js"></script><script src="js/pose-detection-fixed.js"></script><script src="js/pose-simulation.js"></script><script src="js/ergonomic-algorithms.js"></script><script src="js/ui-controller.js"></script><script src="js/main.js"></script></body>
 </html>
-
