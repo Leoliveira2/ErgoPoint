@@ -236,3 +236,18 @@ document.addEventListener('DOMContentLoaded', () => {
 // Exportar para uso global
 window.ErgonomicAnalyzer = ErgonomicAnalyzer;
 
+
+// Ativação segura do botão de análise de postura
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("analyzeBtn");
+  if (btn) {
+    btn.addEventListener("click", function () {
+      if (typeof analisarPostura === "function") {
+        analisarPostura();
+      } else {
+        alert("A função 'analisarPostura' não está definida.");
+        console.error("Função analisarPostura não encontrada no escopo global.");
+      }
+    });
+  }
+});
