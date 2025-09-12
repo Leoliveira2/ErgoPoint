@@ -1,0 +1,53 @@
+{
+  "name": "ergonomic-analyzer",
+  "version": "1.0.0",
+  "description": "Aplicativo web para análise ergonômica RULA, REBA e OWAS com detecção de pose em tempo real",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "serve": "npx serve .",
+    "dev": "python -m http.server 8080",
+    "build": "echo 'Static site - no build required'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "ergonomics",
+    "rula",
+    "reba",
+    "owas",
+    "pose-detection",
+    "tensorflow",
+    "safety",
+    "industrial",
+    "pharmaceutical",
+    "web-app"
+  ],
+  "author": "Manus AI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/ergonomic-analyzer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/ergonomic-analyzer/issues"
+  },
+  "homepage": "https://username.github.io/ergonomic-analyzer",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "files": [
+    "index.html",
+    "styles.css",
+    "js/",
+    "README.md"
+  ]
+}
+
