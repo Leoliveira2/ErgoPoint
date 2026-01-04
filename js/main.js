@@ -56,7 +56,7 @@ class ErgonomicAnalyzer {
     checkBrowserSupport() {
         // Verificar getUserMedia
         if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-            throw new Error('Seu navegador não suporta acesso à câmera');
+            console.warn('Seu navegador não suporta acesso à câmera; recursos de captura serão limitados');
         }
 
         // Verificar Canvas
