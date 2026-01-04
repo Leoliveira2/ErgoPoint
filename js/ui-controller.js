@@ -19,7 +19,7 @@ class UIController {
         
         // Elementos de captura
         this.cameraPlaceholder = document.getElementById('cameraPlaceholder');
-        this.video = document.getElementById('videoElement');
+        this.videoElement = document.getElementById('videoElement');
         this.captureCanvas = document.getElementById('captureCanvas');
         this.poseCanvas = document.getElementById('poseCanvas');
         this.fileInput = document.getElementById('fileInput');
@@ -176,8 +176,8 @@ class UIController {
                 } 
             });
             
-            this.video.srcObject = stream;
-            this.video.style.display = 'block';
+            this.videoElement.srcObject = stream;
+            this.videoElement.style.display = 'block';
             this.captureArea.style.display = 'block';
             
             this.updateStatus('Câmera ativada com sucesso');
@@ -207,7 +207,7 @@ class UIController {
             
             // Mostrar área de captura
             this.captureArea.style.display = 'block';
-            this.video.style.display = 'none';
+            this.videoElement.style.display = 'none';
             
             // Mostrar canvas em vez do vídeo
             this.captureCanvas.style.display = 'block';
@@ -844,4 +844,3 @@ class UIController {
 
 // Exportar para uso global
 window.UIController = UIController;
-
